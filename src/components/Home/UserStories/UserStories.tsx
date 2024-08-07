@@ -61,7 +61,6 @@ export default function () {
     {
       author: "霖",
       img: "./img/user-stories/霖.jpg",
-      description: "Obisidian？这可比游戏好玩儿多了！",
     },
     {
       author: "季风",
