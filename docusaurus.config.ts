@@ -46,7 +46,18 @@ const config: Config = {
     navbar: {
       title: 'Components',
       items: [
-        
+        {
+          docId: "documentation",
+          position: 'left',
+          label: '文档',
+          href: "https://wxycbt0cjk.feishu.cn/wiki/F14cwgZrGiM3CxkekUxcEr5YnSg"
+        },
+        {
+          docId: "releaseNote",
+          position: 'left',
+          label: '更新日志',
+          href: "https://wxycbt0cjk.feishu.cn/wiki/LVO1wtHqoiNON1kUVH4cbGv6ncP"
+        }
       ],
     },
     prism: {

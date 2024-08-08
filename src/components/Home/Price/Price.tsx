@@ -31,7 +31,7 @@ export default function () {
   ];
   return (
     <div className="flex flex-col gap-4 bg-gray-50 dark:bg-transparent">
-      <div className="w-full text-4xl font-bold text-center p-4">
+      <div className="w-full text-4xl font-bold text-center px-4 py-8">
         两种
         <span className="font-bold bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 inline-block text-transparent bg-clip-text">
           买断制授权
@@ -46,7 +46,7 @@ export default function () {
           点击这里查看详细的购买协议
         </a>
       </div>
-      <div className="flex gap-8 justify-center p-4">
+      <div className="flex gap-2 md:gap-8 justify-center p-4">
         {versions.map((version, index) => {
           return (
             <div className="flex flex-col rounded-xl bg-white dark:bg-transparent dark:border dark:border-stone-400 shadow border border-zinc-50 min-h-96 w-72">

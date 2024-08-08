@@ -20,7 +20,7 @@ export default function () {
         玩法的插件
       </div>
       <div className="w-full text-center text-xl tracking-wider text-gray-400 font-bold relative">
-        <div className="type-writer">可视化的设计、组织和管理你的知识系统 🚀</div>
+        <div className="type-writer">设计、组织和管理你的知识系统 🚀</div>
       </div>
       <div className="w-full text-center mt-4">
         <button

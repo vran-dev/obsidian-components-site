@@ -14,10 +14,14 @@ import {
   Table,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import useMasonryResponsiveCount from "../../hooks/useMasonryResponsiveCount";
 
 export default function () {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { columnCount } = useMasonryResponsiveCount(containerRef);
+
   const size = 18;
-  const className = "dark:text-gray-200 text-gray-500"
+  const className = "dark:text-gray-200 text-gray-500";
   const components = [
     {
       name: "数据视图",
@@ -88,47 +92,12 @@ export default function () {
       icon: <LayoutDashboard className={className} size={size} />,
     },
   ];
-  const [columnCount, setColumnCount] = useState(3);
-  const [containerWidth, setContainerWidth] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        const cr = entry.contentRect;
-        setContainerWidth(cr.width);
-      }
-    });
-    resizeObserver.observe(containerRef.current);
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    const width = containerWidth;
-    if (width == null) {
-      return;
-    }
-
-    if (width <= 300) {
-      setColumnCount(1);
-    } else if (width <= 576) {
-      setColumnCount(2);
-    } else if (width <= 992) {
-      setColumnCount(3);
-    } else {
-      setColumnCount(4);
-    }
-  }, [containerWidth]);
 
   return (
     <div className="flex flex-col p-4 mt-4 w-full">
       <div className="text-4xl font-bold text-center">
         <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 inline-block text-transparent bg-clip-text">
-          10&nbsp;余种组件，
+          十余种组件。
         </span>
         <div className="mt-4 text-2xl text-slate-600 dark:text-slate-400">
           像玩乐高一样
@@ -143,7 +112,7 @@ export default function () {
         </div>
       </div>
       <div
-        className="flex w-full gap-4 mt-8 flex-1 px-16 flex-nowrap md:flex-nowrap sm:flex-wrap"
+        className="flex w-full gap-4 mt-8 flex-1 px-2 lg:px-16 flex-nowrap md:flex-nowrap sm:flex-wrap"
         ref={containerRef}
       >
         <Masonry columnsCount={columnCount} gutter={16}>
