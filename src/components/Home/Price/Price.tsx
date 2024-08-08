@@ -30,7 +30,7 @@ export default function () {
     },
   ];
   return (
-    <div className="flex flex-col gap-4 bg-gray-50 dark:bg-transparent">
+    <div id="price" className="flex flex-col gap-4 bg-gray-50 dark:bg-transparent">
       <div className="w-full text-4xl font-bold text-center px-4 py-8">
         两种
         <span className="font-bold bg-gradient-to-r from-red-600 via-red-500 to-yellow-400 inline-block text-transparent bg-clip-text">

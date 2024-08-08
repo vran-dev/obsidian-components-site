@@ -57,7 +57,7 @@ export default function () {
   ];
 
   return (
-    <div className="flex flex-col gap-4 px-8 bg-slate-50 dark:bg-transparent py-2 w-full">
+    <div id="feature" className="flex flex-col gap-4 px-8 bg-slate-50 dark:bg-transparent py-2 w-full">
       <div className="w-full text-center text-4xl p-4 tracking-wider text-stone-600 dark:text-stone-200 font-bold">
         来了解一下。
       </div>

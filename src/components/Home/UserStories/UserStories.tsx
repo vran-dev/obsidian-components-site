@@ -90,7 +90,7 @@ export default function () {
     },
   ];
   return (
-    <div className="flex flex-col gap-4 px-8 py-2" ref={containerRef}>
+    <div id="stories" className="flex flex-col gap-4 px-8 py-2" ref={containerRef}>
       <div className="w-full text-center text-4xl p-4 tracking-wider text-stone-800 dark:text-stone-200 font-bold">
         看看 TA 们是
         <span className=" bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 inline-block text-transparent bg-clip-text">
