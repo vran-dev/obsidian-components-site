@@ -6,6 +6,8 @@ import ComponentList from "../components/Home/ComponentList/ComponentList";
 import Price from "../components/Home/Price/Price";
 import UserStories from "../components/Home/UserStories/UserStories";
 import Feature from "../components/Home/Feature/Feature";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
@@ -22,6 +24,8 @@ export default function Home(): JSX.Element {
           <Price />
           <UserStories />
         </div>
+        <Analytics />
+        <SpeedInsights />
       </main>
     </Layout>
   );
