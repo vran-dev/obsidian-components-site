@@ -4,9 +4,19 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { ExternalLink } from "lucide-react";
 import useMasonryResponsiveCount from "../../hooks/useMasonryResponsiveCount";
-import { useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Slider from "react-slick";
 import "./UserStories.css";
+
+interface StoryItem {
+  author: string;
+  img: string;
+  readMore?: {
+    url: string;
+    text: string;
+  };
+  description?: string;
+}
 
 export default function () {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -90,7 +100,11 @@ export default function () {
     },
   ];
   return (
-    <div id="stories" className="flex flex-col gap-4 px-8 py-2" ref={containerRef}>
+    <div
+      id="stories"
+      className="flex flex-col gap-4 px-8 py-2"
+      ref={containerRef}
+    >
       <div className="w-full text-center text-4xl p-4 tracking-wider text-stone-800 dark:text-stone-200 font-bold">
         看看 TA 们是
         <span className=" bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 inline-block text-transparent bg-clip-text">
@@ -102,41 +116,65 @@ export default function () {
       </div>
       <Masonry columnsCount={columnCount} gutter={16}>
         {shares.map((item, index) => {
-          return (
-            <div
-              key={item.author}
-              className={`flex flex-col items-center gap-2 w-full rounded-md text-stone-800 font-bold `}
-            >
-              <div className="max-h-96 overflow-y-auto scroll-smooth scrollable-image">
-                <Zoom>
-                  <img
-                    src={item.img}
-                    alt={item.author}
-                    className="rounded-md border border-transparent hover:shadow-lg hover:border-slate-50 "
-                  />
-                </Zoom>
-              </div>
-              <div className="w-full mt-2 text-stone-600 dark:text-stone-200 tracking-wider text-base">
-                @{item.author}
-              </div>
-              {item.description && (
-                <div className="w-full text-stone-400 dark:text-stone-300 tracking-wider text-sm">
-                  {item.description}
-                </div>
-              )}
-              {item.readMore && (
-                <a
-                  className="rounded-md flex flex-row items-center gap-2 w-full underline dark:hover:text-stone-200 hover:text-stone-900 text-stone-400 text-xs"
-                  href={item.readMore.url}
-                  target="_blank"
-                >
-                  <ExternalLink size={14} /> {item.readMore.text}
-                </a>
-              )}
-            </div>
-          );
+          return <StoryItemEl item={item} key={index} />;
         })}
       </Masonry>
+    </div>
+  );
+}
+
+function StoryItemEl(props: { item: StoryItem }) {
+  const item = props.item;
+  const [canScroll, setCanScroll] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  useEffect(() => {
+    if (containerRef.current && imageRef.current) {
+      const res =
+        containerRef.current.clientHeight < containerRef.current.scrollHeight;
+      setCanScroll(res);
+    }
+  }, [containerRef, imageRef]);
+  return (
+    <div
+      key={item.author}
+      className={`flex flex-col items-center gap-2 w-full rounded-md text-stone-800 font-bold `}
+    >
+      <div
+        className="max-h-96 overflow-y-auto scroll-smooth scrollable-image"
+        ref={containerRef}
+      >
+        <Zoom>
+          <img
+            src={item.img}
+            alt={item.author}
+            ref={imageRef}
+            className="rounded-md border border-transparent hover:shadow-lg hover:border-slate-50 "
+          />
+        </Zoom>
+      </div>
+      {canScroll && (
+        <div className="text-stone-400 dark:text-stone-300 w-full align-left text-xs">
+          滚动或下拉查看长图
+        </div>
+      )}
+      <div className="w-full mt-2 text-stone-600 dark:text-stone-200 tracking-wider text-base">
+        @{item.author}
+      </div>
+      {item.description && (
+        <div className="w-full text-stone-400 dark:text-stone-300 tracking-wider text-sm">
+          {item.description}
+        </div>
+      )}
+      {item.readMore && (
+        <a
+          className="rounded-md flex flex-row items-center gap-2 w-full underline dark:hover:text-stone-200 hover:text-stone-900 text-stone-400 text-xs"
+          href={item.readMore.url}
+          target="_blank"
+        >
+          <ExternalLink size={14} /> {item.readMore.text}
+        </a>
+      )}
     </div>
   );
 }
