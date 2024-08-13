@@ -64,8 +64,20 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    metadata: [
+      { name: "keywords", content: "obsidian,components,database,component,组件" },
+      { name: "description", content: "一个可以改变 Obsidian 玩法的插件,用于设计、组织和管理你的知识系统。" }
+    ]
   } satisfies Preset.ThemeConfig,
-
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: "google-site-verification",
+        content: "WQzn_X1rrhY2HHCuTYlY750m0YcuY3H73Z3T-OFsDOM"
+      }
+    }
+  ],
   plugins: [
     async function tailwindcss(context, options) {
       return {
