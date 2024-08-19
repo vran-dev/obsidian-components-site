@@ -37,3 +37,8 @@
   display: inline-flex;
   align-items: center;
 }
+
+/* for bilibili iframe player */
+.bpx-player-enter-button {
+  display: none;
+}

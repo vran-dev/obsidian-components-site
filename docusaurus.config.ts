@@ -47,9 +47,15 @@ const config: Config = {
       title: 'Components',
       items: [
         {
+          docId: "videoTutorial",
+          position: 'left',
+          label: '视频教程',
+          to: "/videoTutorial"
+        },
+        {
           docId: "documentation",
           position: 'left',
-          label: '文档',
+          label: '飞书文档',
           href: "https://wxycbt0cjk.feishu.cn/wiki/F14cwgZrGiM3CxkekUxcEr5YnSg"
         },
         {
