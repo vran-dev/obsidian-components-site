@@ -71,24 +71,6 @@ export default function () {
       img: "./img/user-stories/maowuyu.jpg",
     },
     {
-      author: "The Fool",
-      description: "活跃在 obsidian 社区的热心极客",
-      img: "./img/user-stories/thefool.jpg",
-    },
-    {
-      author: "霖",
-      img: "./img/user-stories/霖.jpg",
-    },
-    {
-      author: "季风",
-      img: "./img/user-stories/季风.jpg",
-    },
-    {
-      author: "醒醒",
-      description: "obsidian手残玩家，人菜瘾大",
-      img: "./img/user-stories/xingxing.png",
-    },
-    {
       author: "🐟",
       description: "猫猫上墙🐱",
       img: "./img/user-stories/fish.jpg",
@@ -98,6 +80,36 @@ export default function () {
       description: "猫猫上墙🐱",
       img: "./img/user-stories/fish2.jpg",
     },
+    {
+      author: "里安",
+      description: "EVA 主题示例库",
+      img: "./img/user-stories/lian-eva.jpg",
+      readMore: {
+        url: "https://www.bilibili.com/video/BV1Ax4xeKEVf/",
+        text: "获取模板 →",
+      },
+    },
+    {
+      author: "The Fool",
+      description: "活跃在 obsidian 社区的热心极客",
+      img: "./img/user-stories/thefool.jpg",
+    },
+
+    {
+      author: "霖",
+      img: "./img/user-stories/霖.jpg",
+    },
+    {
+      author: "季风",
+      img: "./img/user-stories/季风.jpg",
+    },
+    
+    {
+      author: "醒醒",
+      description: "obsidian手残玩家，人菜瘾大",
+      img: "./img/user-stories/xingxing.png",
+    },
+    
   ];
   return (
     <div
