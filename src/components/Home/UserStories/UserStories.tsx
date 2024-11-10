@@ -4,8 +4,7 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import { ExternalLink } from "lucide-react";
 import useMasonryResponsiveCount from "../../hooks/useMasonryResponsiveCount";
-import { useEffect, useMemo, useRef, useState } from "react";
-import Slider from "react-slick";
+import { useEffect, useRef, useState } from "react";
 import "./UserStories.css";
 
 interface StoryItem {
@@ -67,6 +66,11 @@ export default function () {
       },
     },
     {
+      author: "vran",
+      img: "./img/user-stories/vran2.jpg",
+      description: "不小心混进来的～",
+    },
+    {
       author: "毛无语",
       img: "./img/user-stories/maowuyu.jpg",
     },
@@ -80,6 +84,22 @@ export default function () {
       description: "猫猫上墙🐱",
       img: "./img/user-stories/fish2.jpg",
     },
+    
+    {
+      author: "橘子",
+      description: "",
+      img: "./img/user-stories/橘子-2-light.jpg",
+    },
+    {
+      author: "橘子",
+      description: "Obsidian重度使用者，喜欢折腾",
+      img: "./img/user-stories/橘子-2-dark.jpg",
+    },
+    {
+      author: "橘子",
+      description: "Obsidian重度使用者，喜欢折腾",
+      img: "./img/user-stories/橘子.jpg",
+    },
     {
       author: "里安",
       description: "EVA 主题示例库",
@@ -90,11 +110,15 @@ export default function () {
       },
     },
     {
+      author: "kairitsuhou",
+      description: "在东京靠Obsidian吊命的游戏美术人",
+      img: "./img/user-stories/kairitsuhou.jpg",
+    },
+    {
       author: "The Fool",
       description: "活跃在 obsidian 社区的热心极客",
       img: "./img/user-stories/thefool.jpg",
     },
-
     {
       author: "霖",
       img: "./img/user-stories/霖.jpg",
@@ -103,13 +127,12 @@ export default function () {
       author: "季风",
       img: "./img/user-stories/季风.jpg",
     },
-    
+
     {
       author: "醒醒",
       description: "obsidian手残玩家，人菜瘾大",
       img: "./img/user-stories/xingxing.png",
     },
-    
   ];
   return (
     <div
