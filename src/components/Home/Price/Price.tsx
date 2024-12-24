@@ -6,7 +6,7 @@ export default function () {
   const versions = [
     {
       title: "大版本授权",
-      price: "28 元",
+      price: "38 元",
       icon: <Car size={iconSize} className={iconClass} />,
       description: (
         <div>
@@ -24,7 +24,7 @@ export default function () {
     },
     {
       title: "永久授权",
-      price: "88 元",
+      price: "98 元",
       icon: <Rocket size={iconSize} className={iconClass} />,
       description: <div>永久授权不受版本更新限制</div>,
     },
