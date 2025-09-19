@@ -46,23 +46,29 @@ const config: Config = {
     navbar: {
       title: 'Components',
       items: [
-        {
-          docId: "videoTutorial",
-          position: 'left',
-          label: '视频教程',
-          to: "/videoTutorial"
-        },
+        // {
+        //   docId: "文档",
+        //   position: 'left',
+        //   label: '视频教程',
+        //   to: "/videoTutorial"
+        // },
         {
           docId: "documentation",
           position: 'left',
-          label: '飞书文档',
+          label: '文档',
           href: "https://wxycbt0cjk.feishu.cn/wiki/F14cwgZrGiM3CxkekUxcEr5YnSg"
+        },
+        {
+          docId: "price",
+          position: 'left',
+          label: '价格',
+          href: "#price"
         },
         {
           docId: "releaseNote",
           position: 'left',
           label: '更新日志',
-          href: "https://wxycbt0cjk.feishu.cn/wiki/LVO1wtHqoiNON1kUVH4cbGv6ncP"
+          href: "https://wxycbt0cjk.feishu.cn/wiki/UqirwCMBeilp8Qk38gKcLFjCndf?table=blkixTV7KBDvSpDg"
         }
       ],
     },

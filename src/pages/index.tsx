@@ -17,7 +17,7 @@ export default function Home(): JSX.Element {
       description="一个可以改变 obsidian 玩法的插件"
     >
       <main className="flex flex-row  w-full justify-center">
-        <div className="flex flex-col gap-2 w-full justify-center 2xl:w-[1280px] xl:w-full">
+        <div className="flex flex-col w-full justify-center 2xl:w-[1280px] xl:w-full">
           <Banner />
           <Feature />
           <ComponentList />

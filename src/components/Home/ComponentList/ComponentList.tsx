@@ -21,7 +21,7 @@ export default function () {
   const { columnCount } = useMasonryResponsiveCount(containerRef);
 
   const size = 18;
-  const className = "dark:text-gray-200 text-gray-500";
+  const className = "text-gray-200 ";
   const components = [
     {
       name: "数据视图",
@@ -95,44 +95,32 @@ export default function () {
 
   return (
     <div className="flex flex-col p-4 mt-4 w-full">
-      <div className="text-4xl font-bold text-center">
-        <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 inline-block text-transparent bg-clip-text">
-          十余种组件。
-        </span>
-        <div className="mt-4 text-2xl text-slate-600 dark:text-slate-400">
-          像玩乐高一样
-          <span className="bg-gradient-to-r from-red-600 via-red-500 to-red-400 text-transparent bg-clip-text">
-            搭建
-          </span>
-          和
-          <span className="bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 text-transparent bg-clip-text">
-            管理
-          </span>
-          你的系统
+      <div>
+        <span className="text-5xl inline-block font-bold">丰富的组件库</span>
+        <div className="mt-4 text-2xl text-gray-400">
+          通过自由组合内置的组件，将笔记升级成你的个人知识系统
         </div>
       </div>
       <div
-        className="flex w-full gap-4 mt-8 flex-1 px-2 lg:px-16 flex-nowrap md:flex-nowrap sm:flex-wrap"
+        className="flex flex-wrap w-full gap-4 mt-8 flex-1 px-2 items-stretch"
         ref={containerRef}
       >
-        <Masonry columnsCount={columnCount} gutter={16}>
-          {components.map((component) => {
-            return (
-              <div
-                key={component.name}
-                className="flex flex-col items-center gap-4 rounded-md p-4 border border-slate-50 dark:border-stone-400 shadow hover:bg-slate-50 dark:hover:bg-transparent dark:hover:border-stone-100"
-              >
-                <div className="flex gap-2 items-center w-full text-xl tracking-wider text-gray-800 dark:text-gray-200 font-bold">
-                  {component.icon}
-                  {component.name}
-                </div>
-                <div className="w-full tracking-wider text-gray-500 dark:text-gray-400">
-                  {component.description}
-                </div>
+        {components.map((component) => {
+          return (
+            <div
+              key={component.name}
+              className="flex flex-col items-stretch gap-4 rounded-md  bg-neutral-800 p-4  shadow flex-1 basis-[300px] min-w-0"
+            >
+              <div className="flex gap-2 items-center w-full text-xl tracking-wider text-gray-100  font-bold">
+                {component.icon}
+                {component.name}
               </div>
-            );
-          })}
-        </Masonry>
+              <div className="w-full tracking-wider text-gray-200">
+                {component.description}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

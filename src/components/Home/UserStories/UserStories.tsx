@@ -84,7 +84,7 @@ export default function () {
       description: "猫猫上墙🐱",
       img: "./img/user-stories/fish2.jpg",
     },
-    
+
     {
       author: "橘子",
       description: "",
@@ -137,16 +137,16 @@ export default function () {
   return (
     <div
       id="stories"
-      className="flex flex-col gap-4 px-8 py-2"
+      className="flex flex-col gap-4 px-8  py-4 mt-4"
       ref={containerRef}
     >
-      <div className="w-full text-center text-4xl p-4 tracking-wider text-stone-800 dark:text-stone-200 font-bold">
+      <div className="w-full text-5xl tracking-wider  font-bold">
         看看 TA 们是
         <span className=" bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 inline-block text-transparent bg-clip-text">
-          如何使用的。
+          如何使用的
         </span>
       </div>
-      <div className="w-full text-center text-xl tracking-wider text-gray-400 font-bold relative">
+      <div className="w-full text-xl tracking-wider text-gray-400 font-bold relative">
         美好的事物总是值得分享 🌈
       </div>
       <Masonry columnsCount={columnCount} gutter={16}>
@@ -173,7 +173,7 @@ function StoryItemEl(props: { item: StoryItem }) {
   return (
     <div
       key={item.author}
-      className={`flex flex-col items-center gap-2 w-full rounded-md text-stone-800 font-bold `}
+      className={`flex flex-col items-center gap-2 w-full rounded-md font-bold `}
     >
       <div
         className="max-h-96 overflow-y-auto scroll-smooth scrollable-image"
@@ -189,21 +189,17 @@ function StoryItemEl(props: { item: StoryItem }) {
         </Zoom>
       </div>
       {canScroll && (
-        <div className="text-stone-400 dark:text-stone-300 w-full align-left text-xs">
-          滚动或下拉查看长图
-        </div>
+        <div className=" w-full align-left text-xs">滚动或下拉查看长图</div>
       )}
-      <div className="w-full mt-2 text-stone-600 dark:text-stone-200 tracking-wider text-base">
-        @{item.author}
-      </div>
+      <div className="w-full mt-2 tracking-wider text-base">@{item.author}</div>
       {item.description && (
-        <div className="w-full text-stone-400 dark:text-stone-300 tracking-wider text-sm">
+        <div className="w-full text-slate-200 tracking-wider text-sm">
           {item.description}
         </div>
       )}
       {item.readMore && (
         <a
-          className="rounded-md flex flex-row items-center gap-2 w-full underline dark:hover:text-stone-200 hover:text-stone-900 text-stone-400 text-xs"
+          className="rounded-md flex flex-row items-center gap-2 w-full underline text-stone-200 text-xs"
           href={item.readMore.url}
           target="_blank"
         >
