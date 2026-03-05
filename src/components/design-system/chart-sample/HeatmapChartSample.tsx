@@ -7,7 +7,8 @@ interface HeatmapChartSampleProps {
 }
 
 const SAMPLE_DAYS = 84;
-const HEATMAP_COLORS = ["#1f2329", "#374253", "#546487", "#7a8fd8", "#aab8ff"];
+// GitHub-style contribution palette.
+const HEATMAP_COLORS = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
 
 function formatDate(date: Date) {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(
@@ -47,9 +48,9 @@ export default function HeatmapChartSample({ className }: HeatmapChartSampleProp
       tooltip: {
         trigger: "item",
         borderWidth: 1,
-        borderColor: "rgba(58,64,73,0.9)",
-        backgroundColor: "rgba(17,18,20,0.94)",
-        textStyle: { color: "#f2f3f5" },
+        borderColor: "rgba(65, 80, 95, 0.2)",
+        backgroundColor: "rgba(255, 255, 255, 0.96)",
+        textStyle: { color: "#1f2937" },
         formatter: (params: { value?: [string, number] }) => {
           const value = params.value;
           if (!value) return "";
@@ -65,17 +66,17 @@ export default function HeatmapChartSample({ className }: HeatmapChartSampleProp
         cellSize: [10, 10],
         splitLine: {
           show: true,
-          lineStyle: { color: "#111214", width: 2 },
+          lineStyle: { color: "#f5f7fb", width: 2 },
         },
         itemStyle: {
           borderWidth: 2,
-          borderColor: "#111214",
+          borderColor: "#f5f7fb",
         },
         dayLabel: {
           show: false,
         },
         monthLabel: {
-          color: "#8b949e",
+          color: "#6b7280",
           fontSize: 9,
           margin: 8,
         },
@@ -97,7 +98,7 @@ export default function HeatmapChartSample({ className }: HeatmapChartSampleProp
           emphasis: {
             itemStyle: {
               shadowBlur: 8,
-              shadowColor: "rgba(143,156,255,0.3)",
+              shadowColor: "rgba(33, 110, 57, 0.28)",
             },
           },
         },

@@ -1,16 +1,14 @@
-import { BarChart2Icon, Bot, TableIcon } from "lucide-react";
 import clsx from "clsx";
-import { AiSample } from "./ai-sample";
+import { BarChart2Icon, TableIcon } from "lucide-react";
+import BentoCard from "./BentoCard";
+import BentoGrid from "./BentoGrid";
 import {
   BarChartSample,
   HeatmapChartSample,
   LineChartSample,
   PieChartSample,
 } from "./chart-sample";
-import BentoCard from "./BentoCard";
-import BentoGrid from "./BentoGrid";
 import { DatabaseViewsSample, DataViewUseCases } from "./db-sample";
-import SystemCanvas from "./SystemCanvas";
 
 interface HeroFeatureBentoProps {
   className?: string;
@@ -19,16 +17,6 @@ interface HeroFeatureBentoProps {
 export default function HeroFeatureBento({ className }: HeroFeatureBentoProps) {
   return (
     <BentoGrid className={clsx(className)}>
-      <BentoCard
-        span="lg"
-        tone="default"
-        className="md:col-span-6 min-h-0"
-        title="AI 助手"
-        icon={<Bot size={18} />}
-      >
-        <AiSample />
-      </BentoCard>
-
       <BentoCard
         span="lg"
         tone="default"
@@ -59,15 +47,7 @@ export default function HeroFeatureBento({ className }: HeroFeatureBentoProps) {
         </div>
       </BentoCard>
 
-      <BentoCard
-        span="lg"
-        tone="default"
-        className="md:col-span-6 min-h-0"
-        title="多达 15+ 种组件"
-        description="组件之间可以像积木一样拼接，快速形成完整工作流。"
-      >
-        <SystemCanvas />
-      </BentoCard>
+     
     </BentoGrid>
   );
 }

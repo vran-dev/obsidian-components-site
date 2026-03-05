@@ -1,12 +1,10 @@
-import clsx from "clsx";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import Carousel, { type CarouselItem } from "../Carousel";
 
 interface DataViewUseCasesProps {
   className?: string;
 }
 
-const useCases = [
+const useCases: CarouselItem[] = [
   {
     title: "看板",
     description: "看板非常适合用来管理项目，能直观的看到每个任务的状态和优先级",
@@ -25,58 +23,5 @@ const useCases = [
 ];
 
 export default function DataViewUseCases({ className }: DataViewUseCasesProps) {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const currentCase = useCases[activeIndex];
-
-  const jumpTo = (index: number) => {
-    const length = useCases.length;
-    const nextIndex = (index + length) % length;
-    setActiveIndex(nextIndex);
-  };
-
-  return (
-    <div className={clsx("cp-db-use-cases", className)}>
-
-      <article className="cp-db-carousel-card">
-        <div className="cp-db-carousel-media">
-          <img src={currentCase.image} alt={currentCase.title} className="cp-db-carousel-cover" />
-          <div className="cp-db-use-cases-controls cp-db-use-cases-controls--overlay">
-            <button
-              type="button"
-              aria-label="上一条场景"
-              className="cp-db-use-cases-control"
-              onClick={() => jumpTo(activeIndex - 1)}
-            >
-              <ChevronLeft size={14} />
-            </button>
-            <button
-              type="button"
-              aria-label="下一条场景"
-              className="cp-db-use-cases-control"
-              onClick={() => jumpTo(activeIndex + 1)}
-            >
-              <ChevronRight size={14} />
-            </button>
-          </div>
-
-          <div className="cp-db-carousel-dots" role="tablist" aria-label="场景切换">
-            {useCases.map((item, index) => (
-              <button
-                key={item.title}
-                type="button"
-                role="tab"
-                aria-selected={index === activeIndex}
-                className={clsx("cp-db-carousel-dot", index === activeIndex && "cp-db-carousel-dot--active")}
-                onClick={() => jumpTo(index)}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="cp-db-carousel-info">
-          <p className="cp-db-carousel-name">{currentCase.title}</p>
-          <p className="cp-db-carousel-desc">{currentCase.description}</p>
-        </div>
-      </article>
-    </div>
-  );
+  return <Carousel items={useCases} className={className} dotsLabel="场景切换" />;
 }

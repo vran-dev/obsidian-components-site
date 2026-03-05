@@ -20,10 +20,10 @@ function CtaButton({
       target={action.target ?? "_self"}
       rel={action.target === "_blank" ? "noreferrer" : undefined}
       className={clsx(
-        "inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm md:text-base font-semibold transition-colors",
+        "cp-mono inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium border transition-colors",
         variant === "primary"
-          ? "bg-[var(--cp-brand)] text-[var(--cp-bg)] hover:bg-[var(--cp-brand-hover)]"
-          : "border border-[var(--cp-border-strong)] text-[var(--cp-text-primary)] hover:bg-[var(--cp-surface-2)]"
+          ? "border-[rgba(95,112,255,0.5)] bg-[rgba(95,112,255,0.12)] text-[var(--cp-text-primary)] hover:bg-[rgba(95,112,255,0.18)] hover:border-[rgba(95,112,255,0.65)]"
+          : "border-[var(--cp-border)] bg-[var(--cp-surface-1)] text-[var(--cp-text-secondary)] hover:text-[var(--cp-text-primary)] hover:bg-[var(--cp-surface-2)] hover:border-[var(--cp-border-strong)]"
       )}
     >
       {action.label}
@@ -33,7 +33,7 @@ function CtaButton({
 
 export default function CtaGroup({ primary, secondary, className }: CtaGroupProps) {
   return (
-    <div className={clsx("flex flex-wrap items-center gap-3", className)}>
+    <div className={clsx("flex flex-wrap items-center gap-2.5", className)}>
       <CtaButton action={primary} variant="primary" />
       {secondary ? <CtaButton action={secondary} variant="secondary" /> : null}
     </div>

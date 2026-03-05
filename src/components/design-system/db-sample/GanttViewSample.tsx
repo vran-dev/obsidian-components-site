@@ -17,7 +17,7 @@ export default function GanttViewSample() {
   });
 
   return (
-    <div className="rounded-lg border border-[var(--cp-border)] bg-[rgba(17,18,20,0.36)] p-2">
+    <div className="rounded-lg border border-[var(--cp-border)]  p-2">
       <div className="mb-2 grid grid-cols-5 gap-1">
         {milestones.map((day) => (
           <span key={day} className="text-center text-[9px] text-[var(--cp-text-secondary)]">

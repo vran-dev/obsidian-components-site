@@ -1,9 +1,9 @@
 import { dbSampleRecords } from "./mockData";
 
 const statusClassMap = {
-  待规划: "bg-[rgba(108,123,146,0.2)] text-[rgba(206,213,224,0.9)]",
-  进行中: "bg-[rgba(143,156,255,0.2)] text-[rgba(219,225,255,0.95)]",
-  已发布: "bg-[rgba(82,209,153,0.2)] text-[rgba(205,245,227,0.95)]",
+  待规划: "bg-[rgba(108,123,146,0.2)] ",
+  进行中: "bg-[rgba(143,156,255,0.2)] ",
+  已发布: "bg-[rgba(82,209,153,0.2)] ",
 } as const;
 
 const priorityClassMap = {

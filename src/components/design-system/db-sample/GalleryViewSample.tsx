@@ -8,7 +8,7 @@ export default function GalleryViewSample() {
       {cards.map((item) => (
         <article
           key={item.id}
-          className="overflow-hidden rounded-lg border border-[var(--cp-border)] bg-[rgba(17,18,20,0.42)]"
+          className="overflow-hidden rounded-lg border border-[var(--cp-border)]"
         >
           <div className="h-20" style={{ background: item.cover }} />
           <div className="flex flex-col gap-1 px-2 py-1.5">

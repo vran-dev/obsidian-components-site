@@ -44,36 +44,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-
-    navbar: {
-      title: 'Components',
-      items: [
-        // {
-        //   docId: "文档",
-        //   position: 'left',
-        //   label: '视频教程',
-        //   to: "/videoTutorial"
-        // },
-        {
-          docId: "documentation",
-          position: 'left',
-          label: '文档',
-          href: "https://wxycbt0cjk.feishu.cn/wiki/F14cwgZrGiM3CxkekUxcEr5YnSg"
-        },
-        {
-          docId: "price",
-          position: 'left',
-          label: '价格',
-          to: "/#price"
-        },
-        {
-          docId: "releaseNote",
-          position: 'left',
-          label: '更新日志',
-          href: "https://wxycbt0cjk.feishu.cn/wiki/UqirwCMBeilp8Qk38gKcLFjCndf?table=blkixTV7KBDvSpDg"
-        }
-      ],
-    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,

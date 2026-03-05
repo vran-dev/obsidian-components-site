@@ -1,6 +1,7 @@
 import {
   ArrowUpRight,
   BadgeDollarSign,
+  BotIcon,
   CircleHelp,
   Layers3,
   PanelsTopLeft,
@@ -9,8 +10,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import DayCounter from "../DayCounter";
-import FloatingToc from "./FloatingToc";
-import { ValueStrip } from "../design-system";
+import { AiSample, Carousel, SystemCanvas, ValueStrip } from "../design-system";
 import CtaGroup from "../design-system/CtaGroup";
 import DesignSection from "../design-system/DesignSection";
 import FaqList from "../design-system/FaqList";
@@ -23,6 +23,21 @@ const buyoutLink = "https://wxycbt0cjk.feishu.cn/wiki/Hfz9wTuqpiDIkokAMETcoRjnnm
 const agreementLink = "https://wxycbt0cjk.feishu.cn/wiki/LnQMwwbZui7uFXkfkYocmHmNnpx";
 const documentLink = "https://wxycbt0cjk.feishu.cn/wiki/F14cwgZrGiM3CxkekUxcEr5YnSg";
 const releaseLink = "https://wxycbt0cjk.feishu.cn/wiki/UqirwCMBeilp8Qk38gKcLFjCndf?table=blkixTV7KBDvSpDg";
+const heroUseCases = [
+  {
+    image: "./img/feature/template-emotion.png",
+  },
+  {
+    image: "./img/feature/homepage-3.png",
+  },
+  {
+    image: "./img/feature/homepage2.png",
+  },
+  {
+    image: "./img/feature/homepage.png",
+  },
+  
+]
 
 
 const price = 128;
@@ -31,25 +46,25 @@ const templateModules = [
   {
     title: "VPara",
     image: "./img/feature/template-vpara.png",
-    detail: "只依赖 2 个插件、几乎 0 代码，基于 PARA 打造的生产级模板库，帮作者高效管理了多个领域，累积执行项目数超 1000 个，整体完成率达到了惊人的 90%",
+    detail: "当任务和资料越积越乱时，VPara 用 PARA 结构和最少插件帮你统一收集、分拣、执行。已在多领域实践，累计项目超 1000 个，完成率约 90%。",
     link: "https://my.feishu.cn/wiki/Ol44wnbF9iO3iAkbqeJcCqnJn9b",
   },
   {
     title: "Emotion",
     image: "./img/feature/template-emotion.png",
-    detail: "基于 Componnets 构建的情绪管理模板库，包含了情绪打卡、情绪日记，情绪仪表盘等模块，帮助用户更好地理解和管理自己的情绪，提升情绪智能。",
+    detail: "情绪管理常见问题是“记了很多，却看不清规律”。这个模板把打卡、日记、仪表盘串成闭环，帮助你识别触发因素并调整节奏。",
     link: "https://my.feishu.cn/wiki/Ddh4wfyO8ihTEEkkXFHckWy2nPe",
   },
   {
     title: "Home",
     image: "./img/feature/homepage-3.png",
-    detail: "依靠 components 强大的组合能力，基于自定义组件、图表、数据视图等组件构建的高颜值个人知识库主页模板，多巴胺色系让人每天打开都是好心情。",
+    detail: "主页常见痛点是“好看但不好用”。这个模板把组件、图表、数据视图整合在一屏，让你每天打开就能看清重点并立即行动。",
     link: "https://my.feishu.cn/record/DtGTr0R5keDjjYc0FVgcUGHznWd",
   },
   {
     title: "习惯系统",
     image: "./img/feature/habit.png",
-    detail: "基于打卡组件和数据视图组件，可以可视化的构建习惯追踪系统，支持多维度数据统计和分析，帮助用户养成好习惯，提升自律能力。",
+    detail: "习惯难坚持，多半因为反馈太弱。用打卡组件和数据视图搭建可视化追踪系统，及时看到趋势变化，持续强化执行。",
     link: "https://my.feishu.cn/wiki/R6vjwvnJtiHlyHknf80cQ8X5nBb",
   }
 ];
@@ -81,12 +96,12 @@ const userStories = [
   {
     author: "Moy",
     img: "./img/user-stories/moy.jpeg",
-    description: "Obisidian？这可比游戏好玩儿多了！",
+    description: "Obsidian？这可比游戏好玩儿多了！",
   },
   {
     author: "Moy",
     img: "./img/user-stories/moy2.jpg",
-    description: "Obisidian？这可比游戏好玩儿多了！",
+    description: "Obsidian？这可比游戏好玩儿多了！",
   },
 
   {
@@ -259,8 +274,7 @@ const aboutProducts = [
 export default function Main() {
   return (
     <div className="cp-tech-bg">
-      <FloatingToc />
-      <DesignSection surface="transparent" className="pt-14 md:pt-20 pb-24 md:pb-28">
+      <DesignSection surface="transparent" className="pt-8 md:pt-12 pb-8 md:pb-12">
         <VerticalTimeline className="max-w-[1160px]">
           <TimelineModule
             id="top"
@@ -274,61 +288,78 @@ export default function Main() {
             }
             contentOffsetClassName="mt-4"
           >
-            <div className="flex flex-col gap-7 md:gap-8">
+            <div className="flex flex-col gap-4 md:gap-6">
               <TypewriterTitleLine
-                text="告别代码，在 Obsidian 中可视化构建你的第二大脑，通往从笔记到系统之路"
+                text="告别代码，让在 Obsidian 中搭建系统成为一种简单的乐趣"
                 className="max-w-3xl"
               />
+
+              <Carousel items={heroUseCases}              
+              />
+
               <ValueStrip items={[
+
+                {
+                  label: "可视化搭建",
+                  tone: "success"
+                },
+                {
+                  label: "模板开箱即用",
+                  tone: "success"
+                },
+                {
+                  label: "AI 提效",
+                  tone: "success"
+                },
                 {
                   label: "买断制授权",
                   tone: "brand"
                 },
-                {
-                  label: "数据视图",
-                  tone: "success"
-                },
-                {
-                  label: "自定义组件",
-                  tone: "success"
-                },
-                {
-                  label: "仪表盘",
-                  tone: "success"
-                },
-                {
-                  label: "AI 助手",
-                  tone: "success"
-                }
               ]} />
-              <article className="cp-card cp-card--default" style={{ border: "none", background: "var(--cp-surface-2)" }}>
-                <DayCounter
-                  startDate="2024-01-17"
-                  label="Components 已持续迭代"
-                />
-                <div className="flex flex-wrap items-center gap-4 text-sm text-[var(--cp-text-secondary)]">
-                  <a
-                    href={releaseLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline hover:text-[var(--cp-text-primary)] transition-colors"
-                  >
-                    查看更新日志
-                  </a>
-                </div>
-              </article>
+
               <CtaGroup
-                primary={{ label: "立即试用", href: trialLink, target: "_blank" }}
-                secondary={{ label: `${price} ¥ / 一次性买断`, href: buyoutLink, target: "_blank" }}
+                primary={{ label: "开始试用", href: trialLink, target: "_blank" }}
+                secondary={{ label: `直接买断 →`, href: buyoutLink, target: "_blank" }}
               />
             </div>
           </TimelineModule>
+
+          <TimelineModule
+            id="feature-data"
+            icon={<Layers3 size={14} />}
+            emphasis="base"
+            title="把笔记变成可执行系统"
+            subtitle="任务、资料、进度常常分散在不同页面。把它们拉到同一视图后，优先级和下一步会更清晰。"
+          >
+            <HeroFeatureBento />
+          </TimelineModule>
+
+          <TimelineModule
+            id="feature-components"
+            icon={<Layers3 size={14} />}
+            emphasis="base"
+            title="用 15+ 种组件支撑你的想象力"
+            subtitle="不用写代码，拖拽组合即可搭建项目面板、知识主页、复盘系统与个人仪表盘。"
+          >
+            <SystemCanvas />
+          </TimelineModule>
+
+          <TimelineModule
+            id="feature-ai"
+            icon={<BotIcon size={14} />}
+            emphasis="base"
+            title="一个真正可以帮你干活儿的 AI 助手"
+            subtitle="从整理全库笔记、生成组件到草拟内容，让“知道要做什么”变成“马上开始做”"
+          >
+            <AiSample />
+          </TimelineModule>
+
           <TimelineModule
             id="templates"
             icon={<PanelsTopLeft size={14} />}
             emphasis="base"
-            title="何必从 0 开始？硬核模板开箱即用"
-            subtitle="覆盖项目管理、知识库主页、习惯系统等多种场景，持续更新中。"
+            title="你不需要从空白页开始"
+            subtitle="常见难题都已沉淀成模板：项目推进、主页搭建、习惯追踪。套用即用，边用边改，快速进入可执行状态。"
           >
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7">
               {templateModules.map((item) => (
@@ -346,21 +377,11 @@ export default function Main() {
                     rel="noreferrer"
                     className="inline-flex items-center gap-1 text-sm text-[var(--cp-text-primary)] underline"
                   >
-                    下载模板 <ArrowUpRight size={14} />
+                    查看模板方案 <ArrowUpRight size={14} />
                   </a>
                 </article>
               ))}
             </div>
-          </TimelineModule>
-
-          <TimelineModule
-            id="feature-bento"
-            icon={<Layers3 size={14} />}
-            emphasis="base"
-            title="颜值和实用，可以全都要"
-            subtitle="无限的组件组合可能，只需要拖拽拼接，就能搭建出来你的个人知识管理系统"
-          >
-            <HeroFeatureBento />
           </TimelineModule>
 
           <TimelineModule
@@ -369,7 +390,7 @@ export default function Main() {
             nodeLabel="用户案例"
             emphasis="emphasized"
             title="用户案例"
-            subtitle="真实用户的使用故事，看看大家都用 Components 搭建了什么样的系统"
+            subtitle="他们也经历过“笔记很多、行动很少”。看看真实用户如何用 Components 搭出可执行系统。"
           >
             <div className="cp-horizontal-scroll">
               <div className="cp-horizontal-track">
@@ -409,52 +430,59 @@ export default function Main() {
             id="price"
             icon={<BadgeDollarSign size={14} />}
             emphasis="emphasized"
-            title="试用与购买"
-            subtitle="买断制授权，一次付费，享专属权益"
+            title="试用和买断"
+            subtitle="先试用验证，再按需买断，把决策风险降到最低。"
           >
-            <div className="mb-7 flex flex-wrap items-center gap-4 text-sm text-[var(--cp-text-secondary)]">
-              <a
-                href={agreementLink}
-                target="_blank"
-                rel="noreferrer"
-                className="underline hover:text-[var(--cp-text-primary)] transition-colors"
-              >
-                查看购买协议
-              </a>
-              <a
-                href={releaseLink}
-                target="_blank"
-                rel="noreferrer"
-                className="underline hover:text-[var(--cp-text-primary)] transition-colors"
-              >
-                查看更新日志
-              </a>
-            </div>
+            <article className="mb-4 cp-card cp-card--default" style={{ border: "none", background: "var(--cp-surface-2)" }}>
+              <DayCounter
+                startDate="2024-01-17"
+                label="Components 持续打磨中"
+              />
+              <div className="flex flex-wrap items-center gap-4 text-sm text-[var(--cp-text-secondary)]">
+                <a
+                  href={agreementLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline hover:text-[var(--cp-text-primary)] transition-colors"
+                >
+                  查看购买协议
+                </a>
+                <a
+                  href={releaseLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline hover:text-[var(--cp-text-primary)] transition-colors"
+                >
+                  最近更新日志
+                </a>
+              </div>
+            </article>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
               <article className="cp-card cp-card--default">
-                <h3 className="text-xl font-semibold text-[var(--cp-text-primary)]">限时体验</h3>
+                <h3 className="text-xl font-semibold text-[var(--cp-text-primary)]">7 天全功能试用</h3>
                 <p className="cp-mono text-3xl font-semibold text-[var(--cp-text-primary)]">0 元 / 人</p>
-                <p className="text-sm text-[var(--cp-text-secondary)]">7 天免费体验全部功能。</p>
+                <p className="text-sm text-[var(--cp-text-secondary)]">先验证是否解决你的核心问题，再决定是否买断。</p>
                 <a
                   href={trialLink}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm md:text-base font-semibold border border-[var(--cp-border-strong)] text-[var(--cp-text-primary)] hover:bg-[var(--cp-surface-2)] transition-colors"
                 >
-                  开始体验
+                  免费开始
                 </a>
               </article>
 
               <article className="cp-card cp-card--brand">
-                <h3 className="text-xl font-semibold text-[var(--cp-text-primary)]">永久授权</h3>
+                <h3 className="text-xl font-semibold text-[var(--cp-text-primary)]">一次买断，长期可用</h3>
                 <p className="cp-mono text-3xl font-semibold text-[var(--cp-text-primary)]">{price} 元 / 人</p>
-                <div className="cp-result-line">一次买断，持续更新</div>
+                <div className="cp-result-line">解决方案持续迭代，不再重复投入</div>
                 <ul className="space-y-2 text-sm text-[var(--cp-text-secondary)]">
-                  <li> 解锁全部组件与数据库能力</li>
-                  <li>支持 AI 模型接入与全库协作</li>
-                  <li>专属会员群，即时响应</li>
-                  <li>专属模板库，开箱即用</li>
-                  <li>专属组件库，持续更新</li>
+                  <li>解锁全部组件与数据库能力</li>
+                  <li>可接入 AI 模型，支持全库协作</li>
+                  <li>会员群答疑与使用支持</li>
+                  <li>模板库持续扩展，开箱即用</li>
+                  <li>组件能力持续更新</li>
                 </ul>
                 <a
                   href={buyoutLink}
@@ -475,7 +503,6 @@ export default function Main() {
             nodeLabel="FAQ"
             emphasis="base"
             title="常见问题"
-            subtitle="在购买决策前，把授权、AI、支持方式说清楚。"
           >
             <FaqList items={faqItems} />
           </TimelineModule>
@@ -486,7 +513,7 @@ export default function Main() {
             nodeLabel="about-me"
             emphasis="base"
             title="关于我"
-            subtitle="一个硬核工具人，开源了多个独立产品和 Obsidian 插件，正在写代码..."
+            subtitle="上世纪侥幸生存下来的古法编程爱好者，开源过几个产品（累计 star 4k+），正在适应新时代进化，代表作："
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               {aboutProducts.map((item) => (

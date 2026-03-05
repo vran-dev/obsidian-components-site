@@ -15,7 +15,7 @@ const eventMap = dbSampleRecords.reduce<Record<number, number>>((acc, item) => {
 
 export default function CalendarViewSample() {
   return (
-    <div className="rounded-lg border border-[var(--cp-border)] bg-[rgba(17,18,20,0.36)] p-2">
+    <div className="rounded-lg border border-[var(--cp-border)] p-2">
       <div className="mb-1 grid grid-cols-7 gap-1">
         {weekdays.map((day) => (
           <span key={day} className="text-center text-[9px] text-[var(--cp-text-secondary)]">

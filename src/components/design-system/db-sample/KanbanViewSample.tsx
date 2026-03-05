@@ -10,7 +10,7 @@ export default function KanbanViewSample() {
         return (
           <div
             key={status}
-            className="rounded-lg border border-[var(--cp-border)] bg-[rgba(17,18,20,0.36)] p-1.5"
+            className="rounded-lg border border-[var(--cp-border)] p-1.5"
           >
             <p className="mb-1 text-[10px] text-[var(--cp-text-secondary)]">
               {status} · {items.length}
