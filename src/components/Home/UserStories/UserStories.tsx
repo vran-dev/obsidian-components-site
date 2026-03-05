@@ -127,12 +127,6 @@ export default function () {
       author: "季风",
       img: "./img/user-stories/季风.jpg",
     },
-
-    {
-      author: "醒醒",
-      description: "obsidian手残玩家，人菜瘾大",
-      img: "./img/user-stories/xingxing.png",
-    },
   ];
   return (
     <div
