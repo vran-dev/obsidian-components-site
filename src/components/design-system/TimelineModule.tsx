@@ -8,15 +8,10 @@ interface TimelineModuleProps {
   title: ReactNode;
   subtitle?: ReactNode;
   children: ReactNode;
-  emphasis?: "base" | "emphasized";
   contentOffsetClassName?: string;
+  shellClassName?: string;
   className?: string;
 }
-
-const emphasisClassMap: Record<NonNullable<TimelineModuleProps["emphasis"]>, string> = {
-  base: "cp-module-shell cp-module-shell--base",
-  emphasized: "cp-module-shell cp-module-shell--emphasized",
-};
 
 export default function TimelineModule({
   id,
@@ -25,8 +20,8 @@ export default function TimelineModule({
   title,
   subtitle,
   children,
-  emphasis = "base",
   contentOffsetClassName = "mt-8 md:mt-10",
+  shellClassName,
   className,
 }: TimelineModuleProps) {
   return (
@@ -37,7 +32,7 @@ export default function TimelineModule({
         </span>
       </aside>
       <div className="cp-timeline-module">
-        <div className={emphasisClassMap[emphasis]}>
+        <div className={clsx("cp-module-shell", shellClassName)}>
           <h2 className="text-2xl md:text-4xl font-semibold tracking-tight text-[var(--cp-text-primary)]">
             {title}
           </h2>

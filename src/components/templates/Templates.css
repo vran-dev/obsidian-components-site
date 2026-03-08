@@ -1,0 +1,44 @@
+.cp-templates-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.cp-template-card {
+  height: 100%;
+}
+
+.cp-template-image {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--cp-border);
+}
+
+.cp-template-title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--cp-text-primary);
+}
+
+.cp-template-detail {
+  margin: 0;
+  color: var(--cp-text-secondary);
+}
+
+.cp-template-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  color: var(--cp-text-primary);
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .cp-templates-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+}

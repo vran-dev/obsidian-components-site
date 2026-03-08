@@ -6,7 +6,6 @@ export { default as ValueStrip } from "./ValueStrip";
 export { default as BentoGrid } from "./BentoGrid";
 export { default as BentoCard } from "./BentoCard";
 export { default as CtaGroup } from "./CtaGroup";
-export { default as FaqList } from "./FaqList";
 export { default as SystemCanvas } from "./SystemCanvas";
 export { default as EchartsView } from "./EchartsView";
 export { default as Carousel } from "./Carousel";

@@ -1,4 +1,4 @@
-import type { FaqItem } from "./types";
+import type { FaqItem } from "../design-system/types";
 
 interface FaqListProps {
   items: FaqItem[];

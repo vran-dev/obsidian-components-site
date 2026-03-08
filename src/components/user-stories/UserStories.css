@@ -1,0 +1,138 @@
+.cp-user-story-scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.cp-user-story-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 10px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.cp-user-story-card {
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--cp-border);
+  border-radius: 12px;
+  background: var(--cp-surface-2);
+}
+
+.cp-user-story-image-wrap {
+  flex: 1;
+  max-height: 24rem;
+  overflow-y: auto;
+}
+
+.cp-user-story-image {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--cp-border);
+  object-fit: cover;
+}
+
+.cp-user-story-author {
+  margin: 0;
+  color: var(--cp-text-primary);
+  font-weight: 600;
+}
+
+.cp-user-story-description {
+  margin: 0;
+  color: var(--cp-text-secondary);
+}
+
+.cp-user-story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  color: var(--cp-text-secondary);
+  text-decoration: underline;
+  transition: color 160ms ease;
+}
+
+.cp-user-story-link:hover {
+  color: var(--cp-text-primary);
+}
+
+.cp-user-story-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.cp-user-story-load-more {
+  border: 1px solid var(--cp-border);
+  border-radius: 999px;
+  background: var(--cp-surface-1);
+  color: var(--cp-text-primary);
+  font-weight: 600;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.cp-user-story-load-more:hover {
+  border-color: var(--cp-border-strong);
+  background: var(--cp-surface-2);
+}
+
+.cp-user-story-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cp-user-story-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+}
+
+.cp-user-story-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cp-user-story-track::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cp-user-story-track::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+}
+
+.cp-user-story-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cp-user-story-scroll:hover,
+.cp-user-story-scroll:focus-within,
+.cp-user-story-track:hover,
+.cp-user-story-track:focus-within {
+  scrollbar-color: rgba(90, 104, 127, 0.28) transparent;
+}
+
+.cp-user-story-scroll:hover::-webkit-scrollbar-thumb,
+.cp-user-story-scroll:focus-within::-webkit-scrollbar-thumb,
+.cp-user-story-scroll::-webkit-scrollbar-thumb:active,
+.cp-user-story-track:hover::-webkit-scrollbar-thumb,
+.cp-user-story-track:focus-within::-webkit-scrollbar-thumb,
+.cp-user-story-track::-webkit-scrollbar-thumb:active {
+  background: rgba(90, 104, 127, 0.28);
+}
+
+@media (min-width: 640px) {
+  .cp-user-story-card {
+    width: auto;
+  }
+}

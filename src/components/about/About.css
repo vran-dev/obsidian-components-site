@@ -1,0 +1,68 @@
+.cp-about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cp-about-card {
+  gap: 12px;
+}
+
+.cp-about-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.cp-about-name {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--cp-text-primary);
+}
+
+.cp-about-tag {
+  padding: 4px 8px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.cp-about-category {
+  margin: 0;
+  font-size: 12px;
+  color: var(--cp-text-secondary);
+}
+
+.cp-about-description {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--cp-text-secondary);
+}
+
+.cp-about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  color: var(--cp-text-primary);
+  text-decoration: underline;
+  transition: color 160ms ease;
+}
+
+.cp-about-link:hover {
+  color: var(--cp-text-primary);
+}
+
+@media (min-width: 768px) {
+  .cp-about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .cp-about-name {
+    font-size: 1.25rem;
+  }
+}

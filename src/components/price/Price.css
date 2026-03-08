@@ -1,0 +1,24 @@
+.cp-price-status-card {
+  margin-bottom: 16px;
+  border: none;
+  background: var(--cp-surface-2);
+}
+
+.cp-price-meta-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.875rem;
+  color: var(--cp-text-secondary);
+}
+
+.cp-price-meta-link {
+  color: inherit;
+  text-decoration: underline;
+  transition: color 160ms ease;
+}
+
+.cp-price-meta-link:hover {
+  color: var(--cp-text-primary);
+}

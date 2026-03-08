@@ -958,7 +958,7 @@
 }
 
 .cp-timeline-module {
-  padding: 12px 0 44px;
+  padding: 12px 0 24px;
 }
 
 .cp-module-shell {
@@ -968,80 +968,12 @@
   padding: 30px 30px 34px;
 }
 
-.cp-module-shell--base {
-  border-color: var(--cp-border);
-  background: var(--cp-surface-1);
-}
-
 .cp-module-shell--emphasized {
   border-color: rgba(95, 112, 255, 0.32);
   background:
     linear-gradient(180deg, rgba(95, 112, 255, 0.1), rgba(95, 112, 255, 0.03) 28%, transparent 58%),
     var(--cp-surface-1);
   box-shadow: inset 0 0 0 1px rgba(95, 112, 255, 0.14);
-}
-
-.cp-horizontal-scroll {
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x proximity;
-  padding-bottom: 10px;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.cp-horizontal-track {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 10px 8px;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-}
-
-.cp-snap-card {
-  scroll-snap-align: start;
-}
-
-.cp-horizontal-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.cp-horizontal-scroll::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 999px;
-}
-
-.cp-horizontal-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.cp-horizontal-track::-webkit-scrollbar {
-  width: 6px;
-}
-
-.cp-horizontal-track::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 999px;
-}
-
-.cp-horizontal-track::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.cp-horizontal-scroll:hover,
-.cp-horizontal-scroll:focus-within,
-.cp-horizontal-track:hover,
-.cp-horizontal-track:focus-within {
-  scrollbar-color: rgba(90, 104, 127, 0.28) transparent;
-}
-
-.cp-horizontal-scroll:hover::-webkit-scrollbar-thumb,
-.cp-horizontal-scroll:focus-within::-webkit-scrollbar-thumb,
-.cp-horizontal-scroll::-webkit-scrollbar-thumb:active,
-.cp-horizontal-track:hover::-webkit-scrollbar-thumb,
-.cp-horizontal-track:focus-within::-webkit-scrollbar-thumb,
-.cp-horizontal-track::-webkit-scrollbar-thumb:active {
-  background: rgba(90, 104, 127, 0.28);
 }
 
 @keyframes cp-caret-blink {

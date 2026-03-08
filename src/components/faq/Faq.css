@@ -1,0 +1,13 @@
+.cp-faq-list {
+  max-width: 880px;
+}
+
+.cp-faq-link {
+  color: var(--cp-text-secondary);
+  text-decoration: underline;
+  transition: color 160ms ease;
+}
+
+.cp-faq-link:hover {
+  color: var(--cp-text-primary);
+}
