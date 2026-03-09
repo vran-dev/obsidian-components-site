@@ -44,6 +44,17 @@ const userReviews: UserReview[] = [
 对于我这种0代码基础的文科生，也在component自定义组件功能支持下，顺利开发出了若干适用的功能小组件，极大的提升了我的知识管理效率。`,
   },
   {
+    name: "joeytoday",
+    url: "https://joeytoday.com/",
+    description: "知识管理爱好者、内容创作者，爱折腾一切好玩的事",
+    tone: "success",
+    content: `我对Obsidian的最深印象就是数据库实在是太丑了，让我迟迟不想使用，但是Components的数据库功能，让Obsidian的数据库能够类Notion的数据库展示，对于我来说，美观是第一折腾动力。
+
+当我开始重度使用Components之后，发现数据库展示只是最基础的功能，我还可以定制自己的组件，于是我开始构建了自己的心情日历和日记复盘组件，不仅是美观，也真正让我的笔记活起来了。
+
+如果你也喜欢折腾，这个组件简直数据选择Obsidian之后的必购插件。`,
+  },
+  {
     name: "闫羽鳞",
     url: "",
     description: "喵字馆创始人｜多个亿级品牌的主案设计师",
