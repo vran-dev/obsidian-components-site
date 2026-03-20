@@ -1,5 +1,7 @@
 import { ArrowUpRight, Users2 } from "lucide-react";
 import { useState } from "react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import TimelineModule from "../design-system/TimelineModule";
 import "./UserStories.css";
 import { useCopy } from "../../i18n";
@@ -26,7 +28,9 @@ export default function UserStories() {
           {visibleStories.map((item) => (
             <article key={item.author + item.img} className="cp-user-story-card">
               <div className="cp-user-story-image-wrap">
-                <img src={item.img} alt={item.author} className="cp-user-story-image" />
+                <Zoom>
+                  <img src={item.img} alt={item.author} className="cp-user-story-image" />
+                </Zoom>
               </div>
               <p className="cp-user-story-author">@{item.author}</p>
               {item.description ? <p className="cp-user-story-description">{item.description}</p> : null}

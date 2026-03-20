@@ -34,10 +34,12 @@
 }
 
 .cp-user-story-image {
+  display: block;
   width: 100%;
   border-radius: 12px;
   border: 1px solid var(--cp-border);
   object-fit: cover;
+  cursor: zoom-in;
 }
 
 .cp-user-story-author {

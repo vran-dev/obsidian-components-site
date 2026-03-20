@@ -9,9 +9,11 @@
 }
 
 .cp-template-image {
+  display: block;
   width: 100%;
   border-radius: 12px;
   border: 1px solid var(--cp-border);
+  cursor: zoom-in;
 }
 
 .cp-template-title {

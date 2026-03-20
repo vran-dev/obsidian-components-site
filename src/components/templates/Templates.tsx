@@ -1,4 +1,6 @@
 import { ArrowUpRight, PanelsTopLeft } from "lucide-react";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import TimelineModule from "../design-system/TimelineModule";
 import "./Templates.css";
 import { useCopy } from "../../i18n";
@@ -12,7 +14,9 @@ export default function Templates() {
       <div className="cp-templates-grid">
         {templates.items.map((item) => (
           <article key={item.title} className="cp-card cp-card--default cp-template-card">
-            <img src={item.image} alt={item.title} className="cp-template-image" />
+            <Zoom>
+              <img src={item.image} alt={item.title} className="cp-template-image" />
+            </Zoom>
             <h3 className="cp-template-title">{item.title}</h3>
             <p className="cp-template-detail">{item.detail}</p>
             <a href={item.link} target="_blank" rel="noreferrer" className="cp-template-link">
