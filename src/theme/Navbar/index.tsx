@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type JSX } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Languages } from "lucide-react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { useLocation } from "@docusaurus/router";
 import { SUPPORTED_LOCALES, useCopy } from "../../i18n";
@@ -253,10 +253,12 @@ export default function Navbar(): JSX.Element {
           <div className="cp-global-nav-menu">
             <button
               type="button"
-              className="cp-global-nav-brand cp-global-nav-brand--trigger"
+              className="cp-global-nav-brand cp-global-nav-brand--trigger cp-global-nav-locale-trigger"
               aria-label={copy.common.navbar.localeSwitchLabel}
             >
-              <span>{currentLocaleLabel}</span>
+              <Languages size={14} className="cp-global-nav-locale-icon" aria-hidden />
+              <span>{copy.common.navbar.localeSwitchLabel}</span>
+              <span className="cp-global-nav-locale-badge">{currentLocaleLabel}</span>
               <ChevronDown size={13} className="cp-global-nav-brand-icon" aria-hidden />
             </button>
             <div className="cp-global-nav-toc-panel cp-global-nav-menu-panel">
