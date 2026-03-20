@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useCopy } from "../i18n";
 
 interface DayCounterProps {
   startDate: string;
@@ -12,12 +13,13 @@ interface DayCounterProps {
 
 export default function DayCounter({
   startDate,
-  label = "持续更新中",
+  label,
   className = "",
   labelClassName = "",
   numberClassName = "",
   unitClassName = "",
 }: DayCounterProps) {
+  const copy = useCopy();
   const [days, setDays] = useState(0);
 
   useEffect(() => {
@@ -35,15 +37,21 @@ export default function DayCounter({
     return () => clearInterval(interval);
   }, [startDate]);
 
+  const unitLabel = useMemo(() => {
+    return days === 1 ? copy.common.dayCounter.unitSingular : copy.common.dayCounter.unitPlural;
+  }, [copy.common.dayCounter.unitPlural, copy.common.dayCounter.unitSingular, days]);
+
   return (
     <div className={clsx("cp-day-counter", className)}>
       <div className="cp-day-counter-head">
         <span className="cp-day-counter-dot" aria-hidden />
-        <span className={clsx("cp-day-counter-label", labelClassName)}>{label}</span>
+        <span className={clsx("cp-day-counter-label", labelClassName)}>
+          {label ?? copy.common.dayCounter.defaultLabel}
+        </span>
       </div>
       <div className="cp-day-counter-main">
         <span className={clsx("cp-day-counter-number", numberClassName)}>{days}</span>
-        <span className={clsx("cp-day-counter-unit", unitClassName)}>天</span>
+        <span className={clsx("cp-day-counter-unit", unitClassName)}>{unitLabel}</span>
       </div>
       <div className="cp-day-counter-ecg" aria-hidden>
         <svg viewBox="0 0 220 36" preserveAspectRatio="none">

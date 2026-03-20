@@ -1,22 +1,21 @@
 import { useMemo } from "react";
 import clsx from "clsx";
 import EchartsView from "../EchartsView";
+import { useCopy } from "../../../i18n";
 
 interface HeatmapChartSampleProps {
   className?: string;
 }
 
 const SAMPLE_DAYS = 84;
-// GitHub-style contribution palette.
 const HEATMAP_COLORS = ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"];
 
 function formatDate(date: Date) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(
-    date.getDate()
-  ).padStart(2, "0")}`;
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 }
 
 export default function HeatmapChartSample({ className }: HeatmapChartSampleProps) {
+  const copy = useCopy();
   const calendarData = useMemo(() => {
     const endDate = new Date();
     endDate.setHours(0, 0, 0, 0);
@@ -54,7 +53,7 @@ export default function HeatmapChartSample({ className }: HeatmapChartSampleProp
         formatter: (params: { value?: [string, number] }) => {
           const value = params.value;
           if (!value) return "";
-          return `${value[0]}<br/>发布活跃度：${value[1]}`;
+          return `${value[0]}<br/>${copy.home.featureBento.charts.heatmapTooltipLabel}: ${value[1]}`;
         },
       },
       calendar: {
@@ -64,54 +63,24 @@ export default function HeatmapChartSample({ className }: HeatmapChartSampleProp
         left: 20,
         range: calendarData.range,
         cellSize: [10, 10],
-        splitLine: {
-          show: true,
-          lineStyle: { color: "#f5f7fb", width: 2 },
-        },
-        itemStyle: {
-          borderWidth: 2,
-          borderColor: "#f5f7fb",
-        },
-        dayLabel: {
-          show: false,
-        },
-        monthLabel: {
-          color: "#6b7280",
-          fontSize: 9,
-          margin: 8,
-        },
-        yearLabel: {
-          show: false,
-        },
+        splitLine: { show: true, lineStyle: { color: "#f5f7fb", width: 2 } },
+        itemStyle: { borderWidth: 2, borderColor: "#f5f7fb" },
+        dayLabel: { show: false },
+        monthLabel: { color: "#6b7280", fontSize: 9, margin: 8 },
+        yearLabel: { show: false },
       },
-      visualMap: {
-        min: 0,
-        max: 4,
-        show: false,
-        inRange: { color: HEATMAP_COLORS },
-      },
+      visualMap: { min: 0, max: 4, show: false, inRange: { color: HEATMAP_COLORS } },
       series: [
         {
           type: "heatmap",
           coordinateSystem: "calendar",
           data: calendarData.data,
-          emphasis: {
-            itemStyle: {
-              shadowBlur: 8,
-              shadowColor: "rgba(33, 110, 57, 0.28)",
-            },
-          },
+          emphasis: { itemStyle: { shadowBlur: 8, shadowColor: "rgba(33, 110, 57, 0.28)" } },
         },
       ],
     }),
-    [calendarData.data, calendarData.range]
+    [calendarData.data, calendarData.range, copy.home.featureBento.charts.heatmapTooltipLabel]
   );
 
-  return (
-    <EchartsView
-      option={option}
-      className={clsx("cp-chart-sample cp-chart-sample--compact cp-chart-sample--calendar", className)}
-      aria-label="图表日历热力图示例"
-    />
-  );
+  return <EchartsView option={option} className={clsx("cp-chart-sample cp-chart-sample--compact cp-chart-sample--calendar", className)} aria-label={copy.home.featureBento.charts.heatmapAriaLabel} />;
 }

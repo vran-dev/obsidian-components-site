@@ -1,4 +1,4 @@
-import { dbSampleRecords } from "./mockData";
+import { useCopy } from "../../../i18n";
 
 const TRACK_DAYS = 31;
 const milestones = [1, 8, 15, 22, 29];
@@ -8,7 +8,8 @@ function toDay(value: string) {
 }
 
 export default function GanttViewSample() {
-  const rows = dbSampleRecords.slice(0, 4).map((item) => {
+  const copy = useCopy();
+  const rows = copy.home.featureBento.records.slice(0, 4).map((item) => {
     const startDay = toDay(item.start);
     const endDay = toDay(item.due);
     const left = ((startDay - 1) / TRACK_DAYS) * 100;
@@ -17,7 +18,7 @@ export default function GanttViewSample() {
   });
 
   return (
-    <div className="rounded-lg border border-[var(--cp-border)]  p-2">
+    <div className="rounded-lg border border-[var(--cp-border)] p-2">
       <div className="mb-2 grid grid-cols-5 gap-1">
         {milestones.map((day) => (
           <span key={day} className="text-center text-[9px] text-[var(--cp-text-secondary)]">

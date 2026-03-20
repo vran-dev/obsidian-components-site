@@ -4,31 +4,36 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Obsidian Components',
-  tagline: 'Build your own obsidian',
+  tagline: 'Build your own Obsidian workspace',
   favicon: './img/favicon-128.ico',
 
-  // Set the production url of your site here
   url: 'https://cp.cc1234.cc',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'vran', // Usually your GitHub org/user name.
-  projectName: 'components', // Usually your repo name.
+  organizationName: 'vran',
+  projectName: 'components',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  // Homepage uses hash navigation (/#price). Docusaurus anchor checker cannot resolve it reliably across routes.
   onBrokenAnchors: 'ignore',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans". 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans', 'zh-Hant', 'en'],
+    localeConfigs: {
+      'zh-Hans': {
+        htmlLang: 'zh-CN',
+        label: '简体中文',
+      },
+      'zh-Hant': {
+        htmlLang: 'zh-TW',
+        label: '繁體中文',
+      },
+      en: {
+        htmlLang: 'en-US',
+        label: 'English',
+      },
+    },
   },
 
   presets: [
@@ -49,27 +54,29 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
     metadata: [
-      { name: "keywords", content: "obsidian,components,database,component,组件" },
-      { name: "description", content: "一个可以改变 Obsidian 玩法的插件,用于设计、组织和管理你的知识系统。" }
-    ]
+      { name: 'keywords', content: 'obsidian,components,database,component,plugin,knowledge management' },
+      {
+        name: 'description',
+        content: 'Obsidian Components helps you build visual systems, dashboards, and data-driven workflows in Obsidian.',
+      },
+    ],
   } satisfies Preset.ThemeConfig,
   headTags: [
     {
       tagName: 'meta',
       attributes: {
-        name: "google-site-verification",
-        content: "WQzn_X1rrhY2HHCuTYlY750m0YcuY3H73Z3T-OFsDOM"
-      }
-    }
+        name: 'google-site-verification',
+        content: 'WQzn_X1rrhY2HHCuTYlY750m0YcuY3H73Z3T-OFsDOM',
+      },
+    },
   ],
   plugins: [
-    async function tailwindcss(context, options) {
+    async function tailwindcss() {
       return {
-        name: "docusaurus-tailwindcss",
+        name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
-          // Appends TailwindCSS and AutoPrefixer.
-          postcssOptions.plugins.push(require("tailwindcss"));
-          postcssOptions.plugins.push(require("autoprefixer"));
+          postcssOptions.plugins.push(require('tailwindcss'));
+          postcssOptions.plugins.push(require('autoprefixer'));
           return postcssOptions;
         },
       };

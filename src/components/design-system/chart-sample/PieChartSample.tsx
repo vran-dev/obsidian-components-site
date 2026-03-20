@@ -1,12 +1,15 @@
 import { useMemo } from "react";
 import clsx from "clsx";
 import EchartsView from "../EchartsView";
+import { useCopy } from "../../../i18n";
 
 interface PieChartSampleProps {
   className?: string;
 }
 
 export default function PieChartSample({ className }: PieChartSampleProps) {
+  const copy = useCopy();
+  const segments = copy.home.featureBento.charts.pieSegments;
   const option = useMemo(
     () => ({
       tooltip: {
@@ -23,28 +26,19 @@ export default function PieChartSample({ className }: PieChartSampleProps) {
           center: ["50%", "54%"],
           avoidLabelOverlap: true,
           label: { show: false },
-          itemStyle: {
-            borderColor: "#111214",
-            borderWidth: 2,
-          },
+          itemStyle: { borderColor: "#111214", borderWidth: 2 },
           data: [
-            { value: 38, name: "新特性" },
-            { value: 32, name: "优化改进" },
-            { value: 18, name: "Bug 修复" },
-            { value: 12, name: "AI 能力" },
+            { value: 38, name: segments[0] },
+            { value: 32, name: segments[1] },
+            { value: 18, name: segments[2] },
+            { value: 12, name: segments[3] },
           ],
           color: ["#8f9cff", "#7b89de", "#55629f", "#3a446f"],
         },
       ],
     }),
-    []
+    [segments]
   );
 
-  return (
-    <EchartsView
-      option={option}
-      className={clsx("cp-chart-sample", className)}
-      aria-label="发布类型占比饼图"
-    />
-  );
+  return <EchartsView option={option} className={clsx("cp-chart-sample", className)} aria-label={copy.home.featureBento.charts.pieAriaLabel} />;
 }

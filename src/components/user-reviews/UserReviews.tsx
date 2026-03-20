@@ -1,94 +1,26 @@
 import { ExternalLinkIcon, MessageSquare } from "lucide-react";
 import TimelineModule from "../design-system/TimelineModule";
+import { useCopy } from "../../i18n";
 
-interface UserReview {
-  name: string;
-  url?: string;
-  description?: string;
-  content: string;
-  tone?: "success" | "brand" | "ai";
-}
+const reviewModuleClassName = "";
 
-const userReviews: UserReview[] = [
-  {
-    name: "Moy",
-    url: "https://forum-zh.obsidian.md/u/moy/summary",
-    description: "Ob 官方中文翻译贡献者 | Easy-Copy、Yearly-Galance 插件作者 | 内容创作者",
-    tone: "success",
-    content: `付费闭源插件本身在OB社群其实是个劣势，所以在有这么多免费插件的情况下，凭什么这个插件能卖钱？还这么多人买？
-    
-我自己是觉得CPS物有所值，因为它确实从底层拓展了OB的能力边界，让它有了和Notion数据库掰掰手腕的潜力。它比官方Bases早了两年开始做OB内数据库，体验相当于 Bases Plus，是我用过的同类插件中最好的。
-
-何况还附带图表/统计等一大堆组件，以及网格布局，对于主页定制的需求也是很好的解决方案。`,
-  },
-  {
-    name: "RavenHogWarts",
-    url: "https://github.com/RavenHogWarts",
-    description: "Raven-Pensieve 组织创建者 | Ace-Code-Editor、Custom-Icons、Next-TOC 等插件作者 | 社区极客",
-    tone: "success",
-    content: `作为从公测跟过来的“开朝元老”，Components 的进化是疯狂的，内测特战队中体验着“日日新”的迭代。
-
-对于颜值党和代码小白，不用死磕晦涩难懂的 Dataview 代码，只需简单的拖拽，就能零门槛搭建出“高颜值可执行系统”。
-
-对于极客和“折腾狂魔”，自定义组件给了无尽可能，我们可以直接通过 AI 就一键生成自己想要的组件，也能自己手动写代码实现更复杂和高级的功能。`,
-  },
-  {
-    name: "二宝学长",
-    url: "https://mp.weixin.qq.com/s/R3i0jgXieuBEcHBjGmVGtA",
-    description: "马克思主义理论学术论文写作教练 | 百万游戏用户社区首席意见领袖与管理员 | Obsidian中文社区特邀圆桌分享嘉宾",
-    tone: "success",
-    content: `有幸全程见证，Component 插件从无到有的破土孵化，到如今百余款组件百花齐放的蓬勃生态。
-
-多年磨一剑。Component 的设计哲学始终如一：开放而不失边界，自由而不陷混乱。无论你是深度极客，还是轻量用户，皆能在此构筑属于自己的“组件王国”。
-
-对于我这种0代码基础的文科生，也在component自定义组件功能支持下，顺利开发出了若干适用的功能小组件，极大的提升了我的知识管理效率。`,
-  },
-  {
-    name: "joeytoday",
-    url: "https://joeytoday.com/",
-    description: "知识管理爱好者、内容创作者，爱折腾一切好玩的事",
-    tone: "success",
-    content: `我对Obsidian的最深印象就是数据库实在是太丑了，让我迟迟不想使用，但是Components的数据库功能，让Obsidian的数据库能够类Notion的数据库展示，对于我来说，美观是第一折腾动力。
-
-当我开始重度使用Components之后，发现数据库展示只是最基础的功能，我还可以定制自己的组件，于是我开始构建了自己的心情日历和日记复盘组件，不仅是美观，也真正让我的笔记活起来了。
-
-如果你也喜欢折腾，这个组件简直数据选择Obsidian之后的必购插件。`,
-  },
-  {
-    name: "闫羽鳞",
-    url: "",
-    description: "喵字馆创始人｜多个亿级品牌的主案设计师",
-    tone: "success",
-    content: `我用一款软件之前，习惯先了解一下作者的开发背景——看看有没有黑历史，会不会只是一时兴起挖个大坑，最后丢下用户不管。
-
-V佬是我在程序圈里为数不多真正认识的朋友之一。
-
-他的产品稳定更新了好多年，作为OB生态下的一款付费插件，早就值回票价了。有多靠谱，不必我多说。我们也是因为这款插件慢慢变成朋友。你就看我的认可程度吧——为了支持V佬长久地做下去，我拉上另一位大佬二宝学长，一起出钱出力，联名定制了一款字体《喵宝组·闪光体》。这是我唯一一次用自己的专业能力去“追星”。
-
-V佬是我的朋友，也是我学习的榜样。
-
-我始终相信：人靠谱，产品才靠谱。`,
-  }
-];
-
-const reviewModuleClassName = ""
 export default function UserReviews() {
+  const copy = useCopy();
+  const { userReviews } = copy.home;
+
   return (
     <TimelineModule
       id="reviews"
       icon={<MessageSquare size={14} />}
-      nodeLabel="真实声音"
+      nodeLabel={userReviews.nodeLabel}
       className={reviewModuleClassName}
-      title="用户口碑"
-      subtitle="来自创作者、开发者与重度用户的长期反馈"
+      title={userReviews.title}
+      subtitle={userReviews.subtitle}
     >
       <div className="grid grid-cols-1 gap-4 min-[960px]:grid-cols-2 min-[960px]:items-start">
-        {userReviews.map((item) => (
-          <article
-            key={item.name}
-            className="overflow-hidden rounded-xl  bg-[#fafafa]"
-          >
-            <div className="border-b border-dashed border-[#8a8a8a]  px-4 py-3 max-[768px]:px-[14px]">
+        {userReviews.items.map((item) => (
+          <article key={item.name} className="overflow-hidden rounded-xl bg-[#fafafa]">
+            <div className="border-b border-dashed border-[#8a8a8a] px-4 py-3 max-[768px]:px-[14px]">
               <h3 className="m-0 text-[1.2rem] font-bold leading-[1.35] tracking-[0.01em]">
                 {item.url ? (
                   <a
@@ -96,7 +28,7 @@ export default function UserReviews() {
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center gap-1 text-[inherit] no-underline underline-offset-4 hover:underline focus-visible:underline"
-                    title={`跳转到 ${item.name}`}
+                    title={`${userReviews.linkTitlePrefix} ${item.name}`}
                   >
                     @{item.name}
                     <ExternalLinkIcon

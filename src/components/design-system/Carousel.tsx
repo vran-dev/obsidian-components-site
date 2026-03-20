@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { useCopy } from "../../i18n";
 
 export interface CarouselItem {
   title?: string;
@@ -16,13 +17,8 @@ interface CarouselProps {
   dotsLabel?: string;
 }
 
-export default function Carousel({
-  items,
-  className,
-  prevLabel = "上一条场景",
-  nextLabel = "下一条场景",
-  dotsLabel = "场景切换",
-}: CarouselProps) {
+export default function Carousel({ items, className, prevLabel, nextLabel, dotsLabel }: CarouselProps) {
+  const copy = useCopy();
   const [activeIndex, setActiveIndex] = useState(0);
 
   if (!items.length) {
@@ -30,6 +26,9 @@ export default function Carousel({
   }
 
   const currentItem = items[activeIndex];
+  const resolvedPrevLabel = prevLabel ?? copy.common.carousel.prevLabel;
+  const resolvedNextLabel = nextLabel ?? copy.common.carousel.nextLabel;
+  const resolvedDotsLabel = dotsLabel ?? copy.common.carousel.dotsLabel;
 
   const jumpTo = (index: number) => {
     const length = items.length;
@@ -39,17 +38,17 @@ export default function Carousel({
 
   return (
     <div className={clsx("mt-3", className)}>
-      <article className="overflow-hidden rounded-[10px]  border-[var(--cp-border)] bg-white/90">
+      <article className="overflow-hidden rounded-[10px] border-[var(--cp-border)] bg-white/90">
         <div className="relative flex items-center justify-center">
           <img
             src={currentItem.image}
-            alt={currentItem.title ?? "carousel item"}
-            className="block h-[152px] w-full  border-b border-[var(--cp-border)] md:h-[32rem]"
+            alt={currentItem.title ?? copy.common.carousel.fallbackAlt}
+            className="block h-[152px] w-full border-b border-[var(--cp-border)] md:h-[32rem]"
           />
           <div className="pointer-events-none absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-between">
             <button
               type="button"
-              aria-label={prevLabel}
+              aria-label={resolvedPrevLabel}
               className="pointer-events-auto inline-flex h-6 w-6 items-center justify-center rounded-lg border border-[var(--cp-border)] bg-white/90 text-[var(--cp-text-secondary)] backdrop-blur-sm transition-colors duration-150 hover:border-[var(--cp-border-strong)] hover:text-[var(--cp-text-primary)] md:h-[26px] md:w-[26px]"
               onClick={() => jumpTo(activeIndex - 1)}
             >
@@ -57,7 +56,7 @@ export default function Carousel({
             </button>
             <button
               type="button"
-              aria-label={nextLabel}
+              aria-label={resolvedNextLabel}
               className="pointer-events-auto inline-flex h-6 w-6 items-center justify-center rounded-lg border border-[var(--cp-border)] bg-white/90 text-[var(--cp-text-secondary)] backdrop-blur-sm transition-colors duration-150 hover:border-[var(--cp-border-strong)] hover:text-[var(--cp-text-primary)] md:h-[26px] md:w-[26px]"
               onClick={() => jumpTo(activeIndex + 1)}
             >
@@ -68,7 +67,7 @@ export default function Carousel({
           <div
             className="absolute bottom-2 left-1/2 inline-flex -translate-x-1/2 items-center gap-[7px] rounded-full bg-white/80 px-2 py-[3px] backdrop-blur-sm"
             role="tablist"
-            aria-label={dotsLabel}
+            aria-label={resolvedDotsLabel}
           >
             {items.map((item, index) => (
               <button
@@ -85,14 +84,12 @@ export default function Carousel({
             ))}
           </div>
         </div>
-        {
-          (currentItem.title || currentItem.description) ? (
-            <div className="px-[10px] pb-[10px] pt-[9px]">
-              <p className="m-0 text-xs font-semibold leading-[1.4] text-[var(--cp-text-primary)]">{currentItem.title}</p>
-              <p className="mt-1 text-[10px] leading-[1.5] text-[var(--cp-text-secondary)]">{currentItem.description}</p>
-            </div>
-          ) : null
-        }
+        {currentItem.title || currentItem.description ? (
+          <div className="px-[10px] pb-[10px] pt-[9px]">
+            <p className="m-0 text-xs font-semibold leading-[1.4] text-[var(--cp-text-primary)]">{currentItem.title}</p>
+            <p className="mt-1 text-[10px] leading-[1.5] text-[var(--cp-text-secondary)]">{currentItem.description}</p>
+          </div>
+        ) : null}
       </article>
     </div>
   );

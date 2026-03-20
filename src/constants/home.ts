@@ -5,5 +5,3 @@ export const HOME_LINKS = {
   document: "https://wxycbt0cjk.feishu.cn/wiki/F14cwgZrGiM3CxkekUxcEr5YnSg",
   release: "https://wxycbt0cjk.feishu.cn/wiki/UqirwCMBeilp8Qk38gKcLFjCndf?table=blkixTV7KBDvSpDg",
 } as const;
-
-export const HOME_PRICE = 128;

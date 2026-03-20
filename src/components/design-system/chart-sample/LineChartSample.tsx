@@ -1,20 +1,17 @@
 import { useMemo } from "react";
 import clsx from "clsx";
 import EchartsView from "../EchartsView";
+import { useCopy } from "../../../i18n";
 
 interface LineChartSampleProps {
   className?: string;
 }
 
 export default function LineChartSample({ className }: LineChartSampleProps) {
+  const copy = useCopy();
   const option = useMemo(
     () => ({
-      grid: {
-        left: 24,
-        right: 10,
-        top: 14,
-        bottom: 24,
-      },
+      grid: { left: 24, right: 10, top: 14, bottom: 24 },
       tooltip: {
         trigger: "axis",
         borderWidth: 1,
@@ -41,27 +38,14 @@ export default function LineChartSample({ className }: LineChartSampleProps) {
           data: [12, 18, 17, 24, 22, 27, 30],
           symbol: "circle",
           symbolSize: 6,
-          lineStyle: {
-            width: 2,
-            color: "#67d4ff",
-          },
-          itemStyle: {
-            color: "#67d4ff",
-          },
-          areaStyle: {
-            color: "rgba(103,212,255,0.14)",
-          },
+          lineStyle: { width: 2, color: "#67d4ff" },
+          itemStyle: { color: "#67d4ff" },
+          areaStyle: { color: "rgba(103,212,255,0.14)" },
         },
       ],
     }),
     []
   );
 
-  return (
-    <EchartsView
-      option={option}
-      className={clsx("cp-chart-sample", className)}
-      aria-label="功能活跃趋势折线图"
-    />
-  );
+  return <EchartsView option={option} className={clsx("cp-chart-sample", className)} aria-label={copy.home.featureBento.charts.lineAriaLabel} />;
 }

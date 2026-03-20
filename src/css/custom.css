@@ -227,6 +227,37 @@
   transform: rotate(180deg);
 }
 
+.cp-global-nav-menu {
+  position: relative;
+}
+
+.cp-global-nav-menu::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 180px;
+  height: 10px;
+}
+
+.cp-global-nav-menu-panel {
+  left: auto;
+  right: 0;
+  width: 180px;
+}
+
+.cp-global-nav-menu:hover .cp-global-nav-toc-panel,
+.cp-global-nav-menu:focus-within .cp-global-nav-toc-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.cp-global-nav-menu:hover .cp-global-nav-brand-icon,
+.cp-global-nav-menu:focus-within .cp-global-nav-brand-icon {
+  transform: rotate(180deg);
+}
+
 .cp-global-nav-toc-title {
   margin: 0 0 6px;
   color: var(--cp-text-secondary);
@@ -239,16 +270,28 @@
 }
 
 .cp-global-nav-toc-list {
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   gap: 2px;
 }
 
-.cp-global-nav-toc-link {
+.cp-global-nav-toc-list > li {
   width: 100%;
+  flex: 0 0 auto;
+}
+
+.cp-global-nav-toc-link {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
   border: none;
   border-left: 2px solid transparent;
   background: transparent;
@@ -258,6 +301,7 @@
   line-height: 1.35;
   padding: 6px 8px;
   cursor: pointer;
+  text-decoration: none;
   transition:
     border-left-color 150ms ease,
     color 150ms ease,
@@ -273,6 +317,17 @@
   border-left-color: rgba(95, 112, 255, 0.72);
   color: var(--cp-text-primary);
   background: rgba(95, 112, 255, 0.1);
+}
+
+.cp-global-nav-toc-link--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cp-global-nav-toc-link--disabled:hover {
+  border-left-color: transparent;
+  color: var(--cp-text-secondary);
+  background: transparent;
 }
 
 .cp-global-nav-brand-icon {
@@ -1024,6 +1079,15 @@
   .cp-global-nav-toc::after {
     width: min(320px, calc(100vw - 24px));
     height: 8px;
+  }
+
+  .cp-global-nav-menu::after {
+    width: 160px;
+    height: 8px;
+  }
+
+  .cp-global-nav-menu-panel {
+    width: 160px;
   }
 
   .cp-global-nav-toc-link {

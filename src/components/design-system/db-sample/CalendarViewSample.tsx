@@ -1,19 +1,20 @@
-import { dbSampleRecords } from "./mockData";
+import { useCopy } from "../../../i18n";
 
-const weekdays = ["一", "二", "三", "四", "五", "六", "日"];
 const startOffset = 5;
 const totalDays = 31;
 const cells = Array.from({ length: 35 }, (_, index) => index - startOffset + 1);
 
-const eventMap = dbSampleRecords.reduce<Record<number, number>>((acc, item) => {
-  const dueDay = Number(item.due.split("-")[1]);
-  if (!Number.isNaN(dueDay)) {
-    acc[dueDay] = (acc[dueDay] ?? 0) + 1;
-  }
-  return acc;
-}, {});
-
 export default function CalendarViewSample() {
+  const copy = useCopy();
+  const weekdays = copy.home.featureBento.databaseViews.calendarWeekdays;
+  const eventMap = copy.home.featureBento.records.reduce<Record<number, number>>((acc, item) => {
+    const dueDay = Number(item.due.split("-")[1]);
+    if (!Number.isNaN(dueDay)) {
+      acc[dueDay] = (acc[dueDay] ?? 0) + 1;
+    }
+    return acc;
+  }, {});
+
   return (
     <div className="rounded-lg border border-[var(--cp-border)] p-2">
       <div className="mb-1 grid grid-cols-7 gap-1">

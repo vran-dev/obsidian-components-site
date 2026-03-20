@@ -1,20 +1,17 @@
 import { useMemo } from "react";
 import clsx from "clsx";
 import EchartsView from "../EchartsView";
+import { useCopy } from "../../../i18n";
 
 interface BarChartSampleProps {
   className?: string;
 }
 
 export default function BarChartSample({ className }: BarChartSampleProps) {
+  const copy = useCopy();
   const option = useMemo(
     () => ({
-      grid: {
-        left: 26,
-        right: 10,
-        top: 14,
-        bottom: 24,
-      },
+      grid: { left: 26, right: 10, top: 14, bottom: 24 },
       tooltip: {
         trigger: "axis",
         axisPointer: { type: "shadow" },
@@ -40,21 +37,12 @@ export default function BarChartSample({ className }: BarChartSampleProps) {
           type: "bar",
           data: [6, 9, 12, 8, 14, 11],
           barMaxWidth: 14,
-          itemStyle: {
-            color: "#7a8fd8",
-            borderRadius: [4, 4, 0, 0],
-          },
+          itemStyle: { color: "#7a8fd8", borderRadius: [4, 4, 0, 0] },
         },
       ],
     }),
     []
   );
 
-  return (
-    <EchartsView
-      option={option}
-      className={clsx("cp-chart-sample", className)}
-      aria-label="每周更新数量柱状图"
-    />
-  );
+  return <EchartsView option={option} className={clsx("cp-chart-sample", className)} aria-label={copy.home.featureBento.charts.barAriaLabel} />;
 }
