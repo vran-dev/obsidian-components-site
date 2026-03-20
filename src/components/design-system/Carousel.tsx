@@ -1,4 +1,6 @@
 import clsx from "clsx";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useCopy } from "../../i18n";
@@ -40,11 +42,13 @@ export default function Carousel({ items, className, prevLabel, nextLabel, dotsL
     <div className={clsx("mt-3", className)}>
       <article className="overflow-hidden rounded-[10px] border-[var(--cp-border)] bg-white/90">
         <div className="relative flex items-center justify-center">
-          <img
-            src={currentItem.image}
-            alt={currentItem.title ?? copy.common.carousel.fallbackAlt}
-            className="block h-[152px] w-full border-b border-[var(--cp-border)] md:h-[32rem]"
-          />
+          <Zoom>
+            <img
+              src={currentItem.image}
+              alt={currentItem.title ?? copy.common.carousel.fallbackAlt}
+              className="block h-[152px] w-full cursor-zoom-in border-b border-[var(--cp-border)] object-cover md:h-[32rem]"
+            />
+          </Zoom>
           <div className="pointer-events-none absolute inset-x-2 top-1/2 flex -translate-y-1/2 justify-between">
             <button
               type="button"
