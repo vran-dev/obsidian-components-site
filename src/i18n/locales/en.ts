@@ -18,9 +18,9 @@ const enCopy: SiteCopy = {
       },
       localeSwitchLabel: "Switch language",
       localeNames: {
-        "zh-Hans": "简中",
-        "zh-Hant": "繁中",
-        en: "EN",
+        "zh-Hans": "Simplified Chinese",
+        "zh-Hant": "Traditional Chinese",
+        en: "English",
       },
     },
     carousel: {

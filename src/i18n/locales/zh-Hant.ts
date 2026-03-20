@@ -16,9 +16,9 @@ const zhHantCopy: SiteCopy = {
       },
       localeSwitchLabel: "語言切換",
       localeNames: {
-        "zh-Hans": "簡中",
-        "zh-Hant": "繁中",
-        en: "EN",
+        "zh-Hans": "簡體中文",
+        "zh-Hant": "繁體中文",
+        en: "English",
       },
     },
     carousel: {
